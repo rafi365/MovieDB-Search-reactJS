@@ -10,10 +10,7 @@ function Dataformater(props){
 function PrintDetails(props){
     const jdata = props.jdata;
     const isdata = Boolean(jdata);
-    // console.log(jdata);
     if(isdata && jdata.length !== 0){
-        //TODO map needs key value(for react specs purposes)
-        
         return(
             <fieldset>
                 <legend><b>Movie Details</b></legend>
@@ -85,10 +82,6 @@ function PrintDetails(props){
 }
 
 class MovieDetails extends React.Component {
-    //   constructor(props) {
-    //     super(props);
-    //   }
-    
       render() {
           if(this.props.loading === true){
               return(

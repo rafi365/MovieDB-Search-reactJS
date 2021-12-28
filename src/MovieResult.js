@@ -8,9 +8,7 @@ function PrintTitles(props){
     // const names = jdata.names;
     const titles = jdata.titles;
     const isdata = Boolean(titles);
-    // console.log(jdata);
     if(isdata && titles.length !== 0){
-        //TODO map needs key value(for react specs purposes)
         const listItems = titles.map((title) =>
         <div key={title.id}>
             <li>{title.title}</li>
@@ -41,7 +39,6 @@ class MovieResult extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     }
     handleClick(event){
-        // console.log(event);
         this.props.handledetails(event);
     }
   render() {
