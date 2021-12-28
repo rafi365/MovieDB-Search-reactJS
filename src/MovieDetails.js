@@ -74,7 +74,7 @@ function PrintDetails(props){
                         <td></td>
                     </tr>
                     <tr>
-                        <td><b>plot:</b></td>
+                        <td><b>Plot:</b></td>
                         <td></td>
                     </tr>
                 </tbody>
@@ -90,9 +90,18 @@ class MovieDetails extends React.Component {
     //   }
     
       render() {
-        return (
-            <PrintDetails jdata={this.props.result}/>
-        );
+          if(this.props.loading === true){
+              return(
+                <fieldset>
+                <legend><b>Movie Details</b></legend>
+                <b>Loading...</b>
+            </fieldset>
+              );
+          }else{
+              return (
+                  <PrintDetails jdata={this.props.result}/>
+              );
+          }
       }
     }
     

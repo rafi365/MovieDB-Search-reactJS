@@ -11,7 +11,8 @@ class App extends React.Component {
     error: null,
     isLoaded: false,
     apiresult: [],
-    moviedetailsresult: []
+    moviedetailsresult: [],
+    detailIsLoading : false,
   };
     this.handleSearchval = this.handleSearchval.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,8 +24,9 @@ class App extends React.Component {
   }
 
   handleMovieResult(movieid){
-    this.setState({//clear it so that the user knows its "loading"
-      moviedetailsresult: []
+    this.setState({//clears old data
+      moviedetailsresult: [],
+      detailIsLoading: true
     });
     const query = "https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/"+movieid;
     fetch(query, {
@@ -38,8 +40,8 @@ class App extends React.Component {
     .then(
       (result) => {
         this.setState({
-          // isLoaded: true,
-          moviedetailsresult: result
+          moviedetailsresult: result,
+          detailIsLoading:false
         });
       },
       // Note: it's important to handle errors here
@@ -47,19 +49,19 @@ class App extends React.Component {
       // exceptions from actual bugs in components.
       (error) => {
         this.setState({
-          // isLoaded: true,
-          // error,
-          moviedetailsresult: []
+          moviedetailsresult: [],
+          detailIsLoading:false
         });
       }
     )
   }
   
   handleSubmit(){
-    // this.setState({query: (x)=>{return this.state.searchval}})
     const search = Boolean(this.state.searchval);
     if(search){
-      // alert('A query was submitted: "'+search+'"');
+      this.setState({
+        isLoaded:false
+      });
       const query = "https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/"+this.state.searchval;
       fetch(query, {
         "method": "GET",
@@ -94,10 +96,10 @@ class App extends React.Component {
       <div>
         <div className='split left'>
           <Searchbox submitform={this.handleSubmit} searchval={this.state.searchval} searchboxhandler={this.handleSearchval} />
-          <MovieResult result={this.state.apiresult} handledetails={this.handleMovieResult}/>
+          <MovieResult loaded={this.state.isLoaded} result={this.state.apiresult} handledetails={this.handleMovieResult}/>
         </div>
         <div className='split right'>
-          <MovieDetails result={this.state.moviedetailsresult}/>
+          <MovieDetails loading={this.state.detailIsLoading} result={this.state.moviedetailsresult}/>
         </div>
       </div>
     );

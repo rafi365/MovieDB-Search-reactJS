@@ -45,10 +45,19 @@ class MovieResult extends React.Component {
         this.props.handledetails(event);
     }
   render() {
-    return (
-    //  <div>{JSON.stringify(this.props.result, null, 2)}</div>
-    <PrintTitles jdata={this.props.result} handleClick={this.handleClick}/>
-    );
+      if(this.props.loaded === true){
+          return (
+          //  <div>{JSON.stringify(this.props.result, null, 2)}</div>
+            <PrintTitles jdata={this.props.result} handleClick={this.handleClick}/>
+          );
+    }else{
+          return(
+            <div>
+                <h1>Search Result</h1>
+                <p>Loading...</p>
+            </div>
+          );
+      }
   }
 }
 
