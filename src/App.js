@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {searchval: '',
     query: '',
     error: null,
-    isLoaded: false,
+    isLoaded: true,
     apiresult: [],
     moviedetailsresult: [],
     detailIsLoading : false,
@@ -100,6 +100,7 @@ class App extends React.Component {
         </div>
         <div className='split right'>
           <MovieDetails loading={this.state.detailIsLoading} result={this.state.moviedetailsresult}/>
+          <p className='credits'>App created with <a href='https://reactjs.org/'>ReactJS</a></p>
         </div>
       </div>
     );

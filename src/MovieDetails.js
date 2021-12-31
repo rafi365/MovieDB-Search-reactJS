@@ -10,15 +10,9 @@ function Dataformater(props){
 function PrintDetails(props){
     const jdata = props.jdata;
     const isdata = Boolean(jdata);
-    //auto scroller
-    const useMountEffect = fun => useEffect(fun, []);
-    const myRef = useRef(null);
-    const executeScroll = () => myRef.current.scrollIntoView(); // run this function from an event handler or pass it to useEffect to execute scroll
-    useMountEffect(executeScroll); // Scroll on mount
-    //end of auto scroller
     if(isdata && jdata.length !== 0){
         return(
-            <fieldset ref={myRef}>
+            <fieldset>
                 <legend><b>Movie Details</b></legend>
                 <table>
                 <tbody>
