@@ -1,4 +1,4 @@
-import React,{ Component, useRef, useEffect} from 'react';
+import React from 'react';
 
 function Dataformater(props){
     if(props.value === ""){

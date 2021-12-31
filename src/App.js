@@ -100,7 +100,7 @@ class App extends React.Component {
         </div>
         <div className='split right'>
           <MovieDetails loading={this.state.detailIsLoading} result={this.state.moviedetailsresult}/>
-          <p className='credits'>App created with <a target='_blank' href='https://reactjs.org/'>ReactJS</a> using <a target='_blank' href='https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/'>IMDB (unofficial) API</a></p>
+          <p className='credits'>App created with <a target='_blank' rel="noreferrer" href='https://reactjs.org/'>ReactJS</a> using <a target='_blank' rel="noreferrer" href='https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/'>IMDB (unofficial) API</a></p>
         </div>
       </div>
     );
