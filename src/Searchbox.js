@@ -21,11 +21,11 @@ class Searchbox extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1>MovieDB Search</h1>
+        <h1 className='title'>MovieDB Search</h1>
         <label>
           <input type="text" value={this.props.searchval} onChange={this.handleChange} placeholder='Search'/>
         </label>
-        <input type="submit" value="Search" />
+        <input className='button' type="submit" value="Search" />
       </form>
     );
   }

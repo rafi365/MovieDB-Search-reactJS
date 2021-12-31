@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Turret+Road:wght@700&display=swap');
+*{
+  font-family: 'Roboto', sans-serif;
+}
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px 20px 12px 10px;
+  margin-bottom: 1%;
+}
 /* Split the screen in half */
 .split {
   height: 100%;
@@ -8,7 +22,12 @@
   overflow-x: hidden;
   padding-top: 20px;
 }
-
+body {
+  /* background-image: url("https://image.freepik.com/free-vector/dark-low-poly-background_1048-7971.jpg");
+  background-repeat: repeat; */
+  min-width: 360px;
+  margin: 5%;
+}
 /* Control the left side */
 .left {
   left: 0;
@@ -24,4 +43,51 @@
     position: relative;
     width: 100%;
   }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 1% 5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  white-space: normal;
+}
+.button:hover{
+  background-color: #49a04c;
+  transition: 0.3s;
+}
+
+.pads{
+  margin: 4% 2%;
+  padding: 0.5% 0 2% 0;
+}
+
+.title{
+  text-align: center;
+  font-family: 'Turret Road', cursive;
 }

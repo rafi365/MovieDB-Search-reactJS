@@ -10,25 +10,27 @@ function PrintTitles(props){
     const isdata = Boolean(titles);
     if(isdata && titles.length !== 0){
         const listItems = titles.map((title) =>
-        <div key={title.id}>
-            <li>{title.title}</li>
+        <div key={title.id} className='card pads'>
+                <h2>{title.title}</h2>
             <img src={title.image} style={{height:"150px",width:"auto"}} alt={title.title}/>
-            <br/>
-            <input type="button" value="Show Movie Details" onClick={()=> props.handleClick(title.id)} />
+            <div className='container'>
+                <br/>
+                <input className='button' type="button" value="Show Movie Details" onClick={()=> props.handleClick(title.id)} />
+            </div>
         </div>
         );
         return(
-            <div>
-                <h1>Search Result</h1>
-                <ul>{listItems}</ul>
-            </div>
+            <fieldset>
+                <legend><h1>Search Result</h1></legend>
+                <div>{listItems}</div>
+            </fieldset>
         );
     }else{
         return(
-            <div>
-                <h1>Search Result</h1>
+            <fieldset>
+                <legend><h1>Search Result</h1></legend>
                 <p>No Results Found!</p>
-            </div>
+            </fieldset>
         );
     }
 }
